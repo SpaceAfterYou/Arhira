@@ -3,7 +3,7 @@
   "scripts": {
     "build": "tsc",
     "serve": "ts-node-dev --respawn ./src/main.ts",
-    "start": "yarn install && ts-node-dev --respawn ./src/main.ts"
+    "start": "yarn build && node ./dist/main.js"
   },
   "dependencies": {
     "@types/node": "^14.14.14",
