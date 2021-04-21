@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-Arhira-E798631D-159B-49AA-8DE8-2DC66B9126AD</UserSecretsId>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Discord.Net" Version="2.3.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0-preview.2.21154.6" />
+  </ItemGroup>
+</Project>
