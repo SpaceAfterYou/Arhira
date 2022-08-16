@@ -1,4 +1,7 @@
 using System.Threading.Tasks;
+using Arhira.Workers;
+using Discord;
+using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -13,6 +16,13 @@ namespace Arhira
             .ConfigureServices(ConfigureServices);
 
         private static void ConfigureServices(HostBuilderContext context, IServiceCollection services) => services
-            .AddHostedService<Worker>();
+            .AddSingleton(_ => new DiscordSocketClient(new DiscordSocketConfig
+            {
+                AlwaysDownloadUsers = true,
+                LogLevel = LogSeverity.Verbose,
+                DefaultRetryMode = RetryMode.AlwaysFail
+            }))
+            .AddHostedService<RoleWorker>()
+            .AddHostedService<LifeWorker>();
     }
 }
